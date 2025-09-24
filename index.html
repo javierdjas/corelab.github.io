@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CoreLab - Secure Clinical Data Management System">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com;">
+    <title>CoreLab - Clinical Data Management</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Header -->
+    <header class="header" role="banner">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="logo">CoreLab</h1>
+                <nav class="main-nav" role="navigation" aria-label="Main navigation">
+                    <ul class="nav-list">
+                        <li><a href="#dashboard" class="nav-link active" aria-current="page">Dashboard</a></li>
+                        <li><a href="#patients" class="nav-link">Patients</a></li>
+                        <li><a href="#assessments" class="nav-link">Assessments</a></li>
+                        <li><a href="#profile" class="nav-link">Profile</a></li>
+                    </ul>
+                </nav>
+                <div class="user-actions">
+                    <span class="user-info" id="userInfo">Not logged in</span>
+                    <button type="button" class="btn btn-secondary" id="logoutBtn" style="display: none;">Logout</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" class="main-content" role="main">
+        <div class="container">
+            <!-- Login Section -->
+            <section id="login-section" class="auth-section">
+                <div class="auth-container">
+                    <div class="auth-header">
+                        <h2>Welcome to CoreLab</h2>
+                        <p>Secure Clinical Data Management System</p>
+                    </div>
+                    
+                    <div class="auth-tabs">
+                        <button type="button" class="tab-btn active" data-tab="login">Login</button>
+                        <button type="button" class="tab-btn" data-tab="register">Register</button>
+                    </div>
+
+                    <!-- Login Form -->
+                    <form id="loginForm" class="auth-form" aria-labelledby="login-heading">
+                        <h3 id="login-heading" class="sr-only">Login Form</h3>
+                        <div class="form-group">
+                            <label for="loginEmail">Email Address</label>
+                            <input type="email" id="loginEmail" name="email" required 
+                                   aria-describedby="loginEmailError" autocomplete="email">
+                            <div id="loginEmailError" class="error-message" role="alert"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="loginPassword">Password</label>
+                            <input type="password" id="loginPassword" name="password" required 
+                                   aria-describedby="loginPasswordError" autocomplete="current-password">
+                            <div id="loginPasswordError" class="error-message" role="alert"></div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">Login</button>
+                        <div id="loginError" class="error-message" role="alert"></div>
+                    </form>
+
+                    <!-- Register Form -->
+                    <form id="registerForm" class="auth-form hidden" aria-labelledby="register-heading">
+                        <h3 id="register-heading" class="sr-only">Registration Form</h3>
+                        <div class="form-group">
+                            <label for="registerName">Full Name</label>
+                            <input type="text" id="registerName" name="name" required 
+                                   aria-describedby="registerNameError" autocomplete="name">
+                            <div id="registerNameError" class="error-message" role="alert"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="registerEmail">Email Address</label>
+                            <input type="email" id="registerEmail" name="email" required 
+                                   aria-describedby="registerEmailError" autocomplete="email">
+                            <div id="registerEmailError" class="error-message" role="alert"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="registerPassword">Password</label>
+                            <input type="password" id="registerPassword" name="password" required 
+                                   aria-describedby="registerPasswordError" autocomplete="new-password"
+                                   minlength="8">
+                            <div id="registerPasswordError" class="error-message" role="alert"></div>
+                            <div class="help-text">Password must be at least 8 characters long</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="registerPasswordConfirm">Confirm Password</label>
+                            <input type="password" id="registerPasswordConfirm" name="passwordConfirm" required 
+                                   aria-describedby="registerPasswordConfirmError" autocomplete="new-password">
+                            <div id="registerPasswordConfirmError" class="error-message" role="alert"></div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">Register</button>
+                        <div id="registerError" class="error-message" role="alert"></div>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Dashboard Section -->
+            <section id="dashboard-section" class="content-section hidden">
+                <div class="section-header">
+                    <h2>Dashboard</h2>
+                    <p>Overview of your clinical data management activities</p>
+                </div>
+                
+                <div class="dashboard-grid">
+                    <div class="dashboard-card">
+                        <div class="card-icon">👥</div>
+                        <div class="card-content">
+                            <h3>Total Patients</h3>
+                            <p class="card-number" id="totalPatients">0</p>
+                        </div>
+                    </div>
+                    <div class="dashboard-card">
+                        <div class="card-icon">📋</div>
+                        <div class="card-content">
+                            <h3>Recent Assessments</h3>
+                            <p class="card-number" id="recentAssessments">0</p>
+                        </div>
+                    </div>
+                    <div class="dashboard-card">
+                        <div class="card-icon">📊</div>
+                        <div class="card-content">
+                            <h3>Data Quality</h3>
+                            <p class="card-number" id="dataQuality">100%</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="recent-activity">
+                    <h3>Recent Activity</h3>
+                    <div id="activityList" class="activity-list">
+                        <p class="no-data">No recent activity</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Patients Section -->
+            <section id="patients-section" class="content-section hidden">
+                <div class="section-header">
+                    <h2>Patient Management</h2>
+                    <button type="button" class="btn btn-primary" id="addPatientBtn">Add New Patient</button>
+                </div>
+                
+                <div class="search-bar">
+                    <input type="search" id="patientSearch" placeholder="Search patients..." aria-label="Search patients">
+                </div>
+
+                <div id="patientsList" class="patients-list">
+                    <p class="no-data">No patients found</p>
+                </div>
+            </section>
+
+            <!-- Assessments Section -->
+            <section id="assessments-section" class="content-section hidden">
+                <div class="section-header">
+                    <h2>Clinical Assessments</h2>
+                    <button type="button" class="btn btn-primary" id="addAssessmentBtn">New Assessment</button>
+                </div>
+                
+                <div id="assessmentsList" class="assessments-list">
+                    <p class="no-data">No assessments found</p>
+                </div>
+            </section>
+
+            <!-- Profile Section -->
+            <section id="profile-section" class="content-section hidden">
+                <div class="section-header">
+                    <h2>User Profile</h2>
+                </div>
+                
+                <form id="profileForm" class="profile-form">
+                    <div class="form-group">
+                        <label for="profileName">Full Name</label>
+                        <input type="text" id="profileName" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="profileEmail">Email Address</label>
+                        <input type="email" id="profileEmail" name="email" required readonly>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Update Profile</button>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <!-- Modals -->
+    <!-- Patient Modal -->
+    <div id="patientModal" class="modal" role="dialog" aria-labelledby="patientModalTitle" aria-hidden="true">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="patientModalTitle">Add New Patient</h2>
+                <button type="button" class="close-btn" aria-label="Close modal">&times;</button>
+            </div>
+            <form id="patientForm" class="modal-form">
+                <div class="form-group">
+                    <label for="patientId">Patient ID</label>
+                    <input type="text" id="patientId" name="patientId" required pattern="[A-Za-z0-9-]+" 
+                           aria-describedby="patientIdHelp">
+                    <div id="patientIdHelp" class="help-text">Use letters, numbers, and hyphens only</div>
+                </div>
+                <div class="form-group">
+                    <label for="patientName">Full Name</label>
+                    <input type="text" id="patientName" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="patientAge">Age</label>
+                    <input type="number" id="patientAge" name="age" min="0" max="150" required>
+                </div>
+                <div class="form-group">
+                    <label for="patientGender">Gender</label>
+                    <select id="patientGender" name="gender" required>
+                        <option value="">Select gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                        <option value="prefer-not-to-say">Prefer not to say</option>
+                    </select>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" id="cancelPatientBtn">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Patient</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Assessment Modal -->
+    <div id="assessmentModal" class="modal" role="dialog" aria-labelledby="assessmentModalTitle" aria-hidden="true">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="assessmentModalTitle">New Clinical Assessment</h2>
+                <button type="button" class="close-btn" aria-label="Close modal">&times;</button>
+            </div>
+            <form id="assessmentForm" class="modal-form">
+                <div class="form-group">
+                    <label for="assessmentPatient">Select Patient</label>
+                    <select id="assessmentPatient" name="patientId" required>
+                        <option value="">Select a patient</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="assessmentType">Assessment Type</label>
+                    <select id="assessmentType" name="type" required>
+                        <option value="">Select type</option>
+                        <option value="physical-exam">Physical Examination</option>
+                        <option value="vital-signs">Vital Signs</option>
+                        <option value="blood-work">Blood Work</option>
+                        <option value="imaging">Medical Imaging</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="assessmentDate">Assessment Date</label>
+                    <input type="date" id="assessmentDate" name="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="assessmentNotes">Notes</label>
+                    <textarea id="assessmentNotes" name="notes" rows="4" 
+                              placeholder="Enter assessment notes and findings..."></textarea>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" id="cancelAssessmentBtn">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Assessment</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Success/Error Toast -->
+    <div id="toast" class="toast" role="alert" aria-live="polite" aria-atomic="true">
+        <div class="toast-content">
+            <span class="toast-message"></span>
+            <button type="button" class="toast-close" aria-label="Close notification">&times;</button>
+        </div>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div id="loading" class="loading" aria-hidden="true">
+        <div class="spinner"></div>
+        <p>Loading...</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
