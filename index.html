@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angio Core Lab Management System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAP8A/wCAgICAAP//AP8AAAAAgIAAAAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEREQAAEREQAAEREQAAEREQAAEREQAAEREQAAEREQAAEREQAAEREQAAEREQAAEREQAAEREQAAEREQAAEREQAAEREQAAEREQAAEREQAAEREQAAEREQAAEREQAAEREQAAEREQAAEREQAAEREQAAEREQAA==">
+</head>
+<body>
+    <!-- Demo Banner -->
+    <div class="demo-banner">
+        🚀 This is a demo version hosted on GitHub Pages. For the full system with backend functionality,
+        <a href="https://github.com/corelab/angio-core-lab" target="_blank">visit the repository</a>.
+    </div>
+
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-spinner"></div>
+        <p>Loading Angio Core Lab System...</p>
+    </div>
+
+    <!-- Login Screen -->
+    <div id="login-screen" class="screen hidden">
+        <div class="login-container">
+            <div class="logo">
+                <h1>🏥 Angio Core Lab</h1>
+                <p>Information Management System</p>
+            </div>
+
+            <form id="login-form" class="form-container">
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required autocomplete="email">
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required autocomplete="current-password">
+                </div>
+
+                <button type="submit" id="login-btn" class="btn btn-primary">
+                    <span>Login</span>
+                    <div class="btn-spinner hidden"></div>
+                </button>
+
+                <div id="login-error" class="error-message hidden"></div>
+            </form>
+
+            <div class="demo-credentials">
+                <h3>Demo Credentials</h3>
+                <div class="demo-users">
+                    <div class="demo-user">
+                        <strong>Admin:</strong> admin@lab.com / admin123
+                    </div>
+                    <div class="demo-user">
+                        <strong>Technician:</strong> tech@lab.com / tech123
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Application -->
+    <div id="main-screen" class="screen hidden">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-left">
+                <h1>🏥 Angio Core Lab</h1>
+            </div>
+            <div class="header-center">
+                <nav class="main-nav">
+                    <button class="nav-btn active" data-page="dashboard">Dashboard</button>
+                    <button class="nav-btn" data-page="patients">Patients</button>
+                    <button class="nav-btn" data-page="procedures">Procedures</button>
+                    <button class="nav-btn" data-page="reports">Reports</button>
+                </nav>
+            </div>
+            <div class="header-right">
+                <div class="user-info">
+                    <span id="user-name">User</span>
+                    <span id="user-role" class="user-role">role</span>
+                </div>
+                <button id="logout-btn" class="btn btn-outline">Logout</button>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Dashboard Page -->
+            <div id="dashboard-page" class="page active">
+                <div class="page-header">
+                    <h2>Dashboard</h2>
+                    <div class="page-actions">
+                        <button id="backup-btn" class="btn btn-outline admin-only">Create Backup</button>
+                    </div>
+                </div>
+
+                <div class="dashboard-stats">
+                    <div class="stat-card">
+                        <div class="stat-number" id="total-patients">-</div>
+                        <div class="stat-label">Total Patients</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="total-procedures">-</div>
+                        <div class="stat-label">Total Procedures</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="avg-stenosis">-</div>
+                        <div class="stat-label">Avg Stenosis %</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="recent-procedures">-</div>
+                        <div class="stat-label">This Week</div>
+                    </div>
+                </div>
+
+                <div class="dashboard-content">
+                    <div class="recent-activity">
+                        <h3>Recent Activity</h3>
+                        <div id="recent-activity-list" class="activity-list">
+                            <!-- Dynamic content -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Patients Page -->
+            <div id="patients-page" class="page">
+                <div class="page-header">
+                    <h2>Patient Management</h2>
+                    <div class="page-actions">
+                        <button id="add-patient-btn" class="btn btn-primary">Add New Patient</button>
+                    </div>
+                </div>
+
+                <div class="patients-content">
+                    <div class="patients-filters">
+                        <input type="search" id="patient-search" placeholder="Search patients...">
+                        <select id="patient-filter">
+                            <option value="">All Patients</option>
+                            <option value="recent">Recent</option>
+                            <option value="active">Active Studies</option>
+                        </select>
+                    </div>
+
+                    <div id="patients-table" class="data-table">
+                        <div class="table-header">
+                            <div class="table-cell">Patient ID</div>
+                            <div class="table-cell">Name</div>
+                            <div class="table-cell">DOB</div>
+                            <div class="table-cell">Gender</div>
+                            <div class="table-cell">Procedures</div>
+                            <div class="table-cell">Actions</div>
+                        </div>
+                        <div id="patients-list" class="table-body">
+                            <!-- Dynamic content -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Procedures Page -->
+            <div id="procedures-page" class="page">
+                <div class="page-header">
+                    <h2>Procedures</h2>
+                    <div class="page-actions">
+                        <button id="add-procedure-btn" class="btn btn-primary">Record Procedure</button>
+                    </div>
+                </div>
+
+                <div class="procedures-content">
+                    <div id="procedures-list" class="procedures-grid">
+                        <!-- Dynamic content -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reports Page -->
+            <div id="reports-page" class="page">
+                <div class="page-header">
+                    <h2>Reports & Export</h2>
+                </div>
+
+                <div class="reports-content">
+                    <div class="report-section">
+                        <h3>Data Export</h3>
+                        <div class="export-options">
+                            <button id="export-patients-btn" class="btn btn-outline">Export All Patients</button>
+                            <button id="export-procedures-btn" class="btn btn-outline">Export Procedures</button>
+                            <button id="export-study-btn" class="btn btn-outline">Export by Study</button>
+                        </div>
+                    </div>
+
+                    <div class="report-section admin-only">
+                        <h3>System Reports</h3>
+                        <div class="system-reports">
+                            <button id="backup-status-btn" class="btn btn-outline">Backup Status</button>
+                            <button id="system-logs-btn" class="btn btn-outline">System Logs</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal Container -->
+    <div id="modal-overlay" class="modal-overlay hidden">
+        <div id="modal-content" class="modal-content">
+            <!-- Dynamic modal content -->
+        </div>
+    </div>
+
+    <!-- Notification Container -->
+    <div id="notifications" class="notifications-container">
+        <!-- Dynamic notifications -->
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
