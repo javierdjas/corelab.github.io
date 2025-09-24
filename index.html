@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoreLab - Authentication System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Login Form -->
+        <div id="login-section" class="section active">
+            <div class="login-card">
+                <h1>CoreLab Login</h1>
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" name="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <button type="submit">Login</button>
+                </form>
+                <div id="error-message" class="error-hidden"></div>
+                
+                <div class="demo-credentials">
+                    <h3>Demo Credentials:</h3>
+                    <p><strong>Admin:</strong> admin / admin123</p>
+                    <p><strong>Analyst:</strong> analyst / analyst123</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Admin Dashboard -->
+        <div id="admin-section" class="section">
+            <header class="dashboard-header">
+                <h1>Admin Dashboard</h1>
+                <div class="user-info">
+                    <span id="admin-username"></span>
+                    <button id="admin-logout" class="logout-btn">Logout</button>
+                </div>
+            </header>
+            
+            <div class="dashboard-content">
+                <div class="admin-features">
+                    <div class="feature-card">
+                        <h3>User Management</h3>
+                        <p>Manage system users and their permissions</p>
+                        <button class="feature-btn">Manage Users</button>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h3>System Settings</h3>
+                        <p>Configure system-wide settings and preferences</p>
+                        <button class="feature-btn">System Config</button>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h3>Analytics Reports</h3>
+                        <p>View comprehensive system analytics and reports</p>
+                        <button class="feature-btn">View Reports</button>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h3>Data Management</h3>
+                        <p>Manage and oversee all data operations</p>
+                        <button class="feature-btn">Manage Data</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Analyst Dashboard -->
+        <div id="analyst-section" class="section">
+            <header class="dashboard-header">
+                <h1>Analyst Dashboard</h1>
+                <div class="user-info">
+                    <span id="analyst-username"></span>
+                    <button id="analyst-logout" class="logout-btn">Logout</button>
+                </div>
+            </header>
+            
+            <div class="dashboard-content">
+                <div class="analyst-features">
+                    <div class="feature-card">
+                        <h3>Data Analysis</h3>
+                        <p>Perform data analysis and create insights</p>
+                        <button class="feature-btn">Analyze Data</button>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h3>Generate Reports</h3>
+                        <p>Create and export analytical reports</p>
+                        <button class="feature-btn">Create Report</button>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h3>View Dashboards</h3>
+                        <p>Access pre-built analytical dashboards</p>
+                        <button class="feature-btn">View Dashboards</button>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h3>Data Visualization</h3>
+                        <p>Create charts and visualizations</p>
+                        <button class="feature-btn">Create Charts</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+</body>
+</html>
