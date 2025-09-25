@@ -1,0 +1,68 @@
+[2025-09-24T01:38:24.558Z] [INFO] Database initialized successfully
+[2025-09-24T01:38:24.565Z] [INFO] Angio Core Lab server running on port 8080
+[2025-09-24T01:39:03.435Z] [INFO] GET /api/health - ::1
+[2025-09-24T01:40:37.767Z] [INFO] POST /api/auth/login - ::1
+[2025-09-24T01:40:38.061Z] [INFO] GET /api/patients - ::1
+[2025-09-24T01:40:53.995Z] [INFO] GET /api/patients - ::1
+[2025-09-24T01:41:01.046Z] [INFO] GET /api/patients - ::1
+[2025-09-24T01:41:08.137Z] [INFO] GET /api/patients - ::1
+[2025-09-24T01:41:13.022Z] [INFO] GET /api/patients - ::1
+[2025-09-24T01:41:41.108Z] [INFO] POST /api/patients - ::1
+[2025-09-24T01:41:41.120Z] [INFO] GET /api/patients - ::1
+[2025-09-24T01:41:53.085Z] [INFO] GET /api/patients - ::1
+[2025-09-24T01:41:57.186Z] [INFO] GET /api/patients - ::1
+[2025-09-24T01:42:07.538Z] [INFO] GET /api/patients - ::1
+[2025-09-24T01:42:13.091Z] [INFO] GET /api/patients - ::1
+[2025-09-24T01:42:35.869Z] [INFO] POST /api/auth/login - ::1
+[2025-09-24T01:42:36.160Z] [INFO] GET /api/patients - ::1
+[2025-09-24T01:42:46.230Z] [INFO] GET /api/patients - ::1
+[2025-09-24T01:42:48.637Z] [INFO] GET /api/patients - ::1
+[2025-09-24T01:42:53.085Z] [INFO] GET /api/patients - ::1
+[2025-09-24T01:42:56.615Z] [INFO] GET /api/export/patients - ::1
+[2025-09-24T01:43:03.492Z] [INFO] GET /api/patients - ::1
+[2025-09-24T01:43:09.981Z] [INFO] GET /api/patients - ::1
+[2025-09-24T01:43:11.580Z] [INFO] GET /api/patients - ::1
+[2025-09-24T01:43:18.882Z] [INFO] GET /api/patients - ::1
+[2025-09-24T01:43:23.484Z] [INFO] Auto-backup completed
+[2025-09-24T01:43:50.218Z] [INFO] GET /api/patients - ::1
+[2025-09-24T01:43:51.237Z] [INFO] GET /api/patients - ::1
+[2025-09-24T01:44:25.246Z] [INFO] POST /api/patients/kkkk/procedures - ::1
+[2025-09-24T01:44:25.250Z] [ERROR] Failed to create procedure: Patient not found
+[2025-09-24T01:44:32.255Z] [INFO] POST /api/patients/kkkk/procedures - ::1
+[2025-09-24T01:44:32.258Z] [ERROR] Failed to create procedure: Patient not found
+[2025-09-24T01:44:42.913Z] [INFO] POST /api/patients/kkkk/procedures - ::1
+[2025-09-24T01:44:42.915Z] [ERROR] Failed to create procedure: Patient not found
+[2025-09-24T01:44:57.319Z] [INFO] GET /api/export/patients - ::1
+[2025-09-24T01:48:23.499Z] [INFO] Auto-backup completed
+[2025-09-24T01:51:15.810Z] [INFO] GET /api/api/health - ::1
+[2025-09-24T01:51:23.240Z] [INFO] POST /api/auth/login - ::1
+[2025-09-24T01:51:23.518Z] [INFO] GET /api/patients - ::1
+[2025-09-24T01:51:38.766Z] [INFO] GET /api/patients - ::1
+[2025-09-24T01:51:42.900Z] [INFO] GET /api/patients - ::1
+[2025-09-24T01:52:10.244Z] [INFO] POST /api/auth/login - ::1
+[2025-09-24T01:52:10.527Z] [INFO] GET /api/patients - ::1
+[2025-09-24T01:52:14.306Z] [INFO] GET /api/export/patients - ::1
+[2025-09-24T01:53:23.512Z] [INFO] Auto-backup completed
+[2025-09-24T01:58:23.521Z] [INFO] Auto-backup completed
+[2025-09-24T21:50:35.422Z] [INFO] Database initialized successfully
+[2025-09-24T21:50:35.425Z] [INFO] Angio Core Lab server running on port 3000
+[2025-09-24T21:50:51.251Z] [INFO] POST /api/auth/login - ::1
+[2025-09-24T21:50:57.088Z] [INFO] GET /api/patients - ::1
+[2025-09-24T21:54:49.177Z] [INFO] POST /api/auth/login - ::1
+[2025-09-24T21:54:49.935Z] [INFO] GET /api/patients - ::1
+[2025-09-24T21:55:02.953Z] [INFO] GET /api/patients - ::1
+[2025-09-24T21:55:05.906Z] [INFO] GET /api/patients - ::1
+[2025-09-24T21:55:34.619Z] [INFO] Auto-backup completed
+[2025-09-24T22:00:34.626Z] [INFO] Auto-backup completed
+[2025-09-24T22:05:34.625Z] [INFO] Auto-backup completed
+[2025-09-24T22:10:34.632Z] [INFO] Auto-backup completed
+[2025-09-24T22:15:34.639Z] [INFO] Auto-backup completed
+[2025-09-24T22:20:34.647Z] [INFO] Auto-backup completed
+[2025-09-24T22:25:34.675Z] [INFO] Auto-backup completed
+[2025-09-24T22:30:34.703Z] [INFO] Auto-backup completed
+[2025-09-24T22:35:34.704Z] [INFO] Auto-backup completed
+[2025-09-24T22:40:34.734Z] [INFO] Auto-backup completed
+[2025-09-24T22:45:34.740Z] [INFO] Auto-backup completed
+[2025-09-24T22:50:34.739Z] [INFO] Auto-backup completed
+[2025-09-24T22:55:34.755Z] [INFO] Auto-backup completed
+[2025-09-24T23:00:34.755Z] [INFO] Auto-backup completed
